@@ -4,14 +4,14 @@ Explanation of progress in the development of the program installer with dates a
 
 
 
-### 09/01/2024 - The node modules used by the program were obsolete due to the last node update and creation of the program certificate.
+## 09/01/2024 - The node modules used by the program were obsolete due to the last node update and creation of the program certificate.
 
 - Resolved deprecaded node modules using a project folder with preloaded modules.
 - To build the program, a folder ```private``` with the program certificate ```fl4.pfx``` is requested in the package.json, but this folder is not in the program's gui repository.
 
 
 
-### 11/01/2024 - Creation of the program certificate and first attempt of the installer.
+## 11/01/2024 - Creation of the program certificate and first attempt of the installer.
 
 - The ```private``` folder was created within the gui and the program certificate was created using the command: 
 ```bash 
@@ -36,7 +36,8 @@ New-SelfSignedCertificate -DnsName noirlab.edu -Type CodeSigning -CertStoreLocat
 </div>
 
 
-### 12/01/2024 – Final bug fixes and installer tests on different computers.
+
+## 12/01/2024 – Final bug fixes and installer tests on different computers.
 
 - The problem was found in the if statement at the line 294 from fitscli.cpp.
 ```c++
