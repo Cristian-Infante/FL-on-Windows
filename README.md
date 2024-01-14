@@ -109,7 +109,7 @@ std::cout << "Flag1" << endl;
 ```
 
 
-- DLLs necessary for the fitscli that are in ```C:\msys64\ucrt64\bin``` (It is necessary to add that folder to the path in the environment variables for the correct functioning of the program):
+- DLLs necessary for the fitscli that are in ```C:\msys64\ucrt64\bin```:
 ```
 Libgcc_s_seh-1.dll
 Libcfitsio-4.dll
@@ -120,3 +120,12 @@ Libvips-cpp-42.dll
 Libvips-42.dll
 Libwinpthread-1.dll
 ```
+
+
+- The solution to this problem was to create a zip of the C:\msys64\ucrt64\bin folder to copy it to the computer of the person who is going to install the program. This folder has the dlls necessary for the correct functioning of fitscli (It is necessary to add that folder to the path in the environment variables for the correct functioning of the program).
+
+
+- It is necessary that the name of the computer user does not have spaces for the correct functioning of the funpack, (example: C:\Users\Cristian) since the program will use the command C:\Users\Cristian\AppData\Local\Programs \fitsliberator\fitscli\win\funpack and if you have spaces in the username (Example: C:\Users\Cristian Infante\AppData\Local\Programs\fitsliberator\fitscli\win\funpack) you will encounter the following error depending on your default terminal: "C:\Users\Cristian" is not recognized as an internal or external command, program or executable batch file.
+
+
+- Tests were carried out on different computers and if the recommendations given are followed (Copy the C:\msys64\ucrt64\bin folder and have a username without spaces) both the installer and the program work correctly.
