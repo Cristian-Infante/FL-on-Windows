@@ -1,19 +1,19 @@
 
 # Fits Liberator installer on Windows
-Explanation of progress in the development of the program installer with dates and descriptions of the errors solved
+Explanation of progress in the development of the program installer with dates and descriptions of the errors solved.
 
 
 
 ## 09/01/2024 - The node modules used by the program were obsolete due to the last node update and creation of the program certificate.
 
 - Resolved deprecaded node modules using a project folder with preloaded modules.
-- To build the program, a folder ```private``` with the program certificate ```fl4.pfx``` is requested in the package.json, but this folder is not in the program's gui repository.
+- To build the program, a folder `private` with the program certificate `fl4.pfx` is requested in the package.json, but this folder is not in the program's gui repository.
 
 
 
 ## 11/01/2024 - Creation of the program certificate and first attempt of the installer.
 
-- The ```private``` folder was created within the gui and the program certificate was created using the command: 
+- The `private` folder was created within the gui and the program certificate was created using the command: 
 ```bash 
 New-SelfSignedCertificate -DnsName noirlab.edu -Type CodeSigning -CertStoreLocation Cert:\CurrentUser\My
 ```
@@ -27,7 +27,6 @@ New-SelfSignedCertificate -DnsName noirlab.edu -Type CodeSigning -CertStoreLocat
     7) Choose a name and save the `.pfx` file in a secure location.
 - Once the certificate has been exported to a `.pfx` file, the electron-builder configuration file is updated with the path to the `.pfx` file and the password set during the export. It is ensured that electron-builder has access to this location during the build process.
 - The program is running successfully if it is compiled from msys, but if it is compiled from the windows terminal the json files are not created for image analysis:
-
 <div align="center">
     
 ![App Screenshot](https://github.com/Cristian-Infante/FL-on-Windows/blob/CFIC/image.png)
@@ -105,15 +104,16 @@ ofstream outheader(headerfile);
 outheader << header << endl;
 std::cout << "Flag1" << endl;
 ```
-- DLLs necessary for the fitscli that are in ```C:\msys64\ucrt64\bin```: `Libgcc_s_seh-1.dll Libcfitsio-4.dll Libgobject-2.0-0.dll Libglib-2.0-0.dll Libstdc++-6.dll Libvips-cpp-42.dll Libvips-42.dll Libwinpthread-1.dll`.
-- The solution to this problem was to create a zip of the ```msys64``` folder to copy it to the computer of the person who is going to install the program. This folder has the dlls necessary for the correct functioning of fitscli (It is necessary to add that folder to the path in the environment variables for the correct functioning of the program).
-- It is necessary that the name of the computer user does not have spaces for the correct functioning of the funpack, (example: C:\Users\Cristian) since the program will use the command C:\Users\Cristian\AppData\Local\Programs \fitsliberator\fitscli\win\funpack and if you have spaces in the username (Example: C:\Users\Cristian Infante\AppData\Local\Programs\fitsliberator\fitscli\win\funpack) you will encounter the following error depending on your default terminal: "C:\Users\Cristian" is not recognized as an internal or external command, program or executable batch file.
+- DLLs necessary for the fitscli that are in `C:\msys64\ucrt64\bin`: `Libgcc_s_seh-1.dll Libcfitsio-4.dll Libgobject-2.0-0.dll Libglib-2.0-0.dll Libstdc++-6.dll Libvips-cpp-42.dll Libvips-42.dll Libwinpthread-1.dll`.
+- The solution to this problem was to create a zip of the `msys64` folder to copy it to the computer of the person who is going to install the program. This folder has the dlls necessary for the correct functioning of fitscli (It is necessary to add that folder to the path in the environment variables for the correct functioning of the program).
+- It is necessary that the name of the computer user does not have spaces for the correct functioning of the funpack, (example: `C:\Users\Cristian`) since the program will use the command `C:\Users\Cristian\AppData\Local\Programs\fitsliberator\fitscli\win\funpack` and if you have spaces in the username (Example: `C:\Users\Cristian Infante\AppData\Local\Programs\fitsliberator\fitscli\win\funpack`) you will encounter the following error depending on your default terminal: `"C:\Users\Cristian" is not recognized as an internal or external command, program or executable batch file`.
 
 
-- Tests were carried out on different computers and if the recommendations given are followed (Copy the C:\msys64\ucrt64\bin folder and have a username without spaces) both the installer and the program work correctly.
+- Tests were carried out on different computers and if the recommendations given are followed (Copy the msys64 folder and have a username without spaces) both the installer and the program work correctly.
+
 
 
 ## Related
 
-- The zip files for both the ```private``` and ```msys64``` folders and the program installer can be found in the following [Link](https://drive.google.com/drive/folders/1izsJnDk1ZxvlpBX4PqeRQ7MiUBmAnbUI?usp=sharing).
-- In the case of the ```msys64``` folder, it is necessary to unzip it and copy it to the path ```C:\msys64\ucrt64\bin``` to add that folder to the path in the environment variables for the correct functioning of the program.
+- The zip files for both the `private` and `msys64` folders and the program installer can be found in the following [Link](https://drive.google.com/drive/folders/1izsJnDk1ZxvlpBX4PqeRQ7MiUBmAnbUI?usp=sharing).
+- In the case of the `msys64` folder, it is necessary to unzip it and copy it to the path `C:\msys64\ucrt64\bin` to add that folder to the path in the environment variables for the correct functioning of the program.
