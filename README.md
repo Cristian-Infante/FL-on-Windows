@@ -29,8 +29,10 @@ New-SelfSignedCertificate -DnsName noirlab.edu -Type CodeSigning -CertStoreLocat
 - The program is running successfully if it is compiled from msys, but if it is compiled from the windows terminal the json files are not created for image analysis:
 
 <div align="center">
+    
 ![App Screenshot](https://github.com/Cristian-Infante/FL-on-Windows/blob/CFIC/image.png)
 ![App Screenshot](https://github.com/Cristian-Infante/FL-on-Windows/blob/CFIC/image2.png)
+
 </div>
 
 
