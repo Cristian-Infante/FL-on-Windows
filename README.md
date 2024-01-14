@@ -18,13 +18,13 @@ Explanation of progress in the development of the program installer with dates a
 New-SelfSignedCertificate -DnsName noirlab.edu -Type CodeSigning -CertStoreLocation Cert:\CurrentUser\My
 ```
 - The certificate was exported to the private folder using the following steps:
-    1. Open Windows Certificate Manager by running `certmgr.msc` in the Windows search box or in a Run command (Win + R).
-    2. In Certificate Manager, navigate to "Personal" -> "Certificates".
-    3. Locate the certificate, which should be named as per the `DnsName` specified in the creation command. It should be something related to "noirlab.edu".
-    4. Right-click on the certificate -> "All Tasks" -> "Export...".
-    5. Follow the export wizard. Ensure to select the option "Yes, export the private key".
-    6. Set a password for the `.pfx` file when prompted, and remember this password as it is needed for configuring electron-builder.
-    7. Choose a name and save the `.pfx` file in a secure location.
+    1) Open Windows Certificate Manager by running `certmgr.msc` in the Windows search box or in a Run command (Win + R).
+    2) In Certificate Manager, navigate to "Personal" -> "Certificates".
+    3) Locate the certificate, which should be named as per the `DnsName` specified in the creation command. It should be something related to "noirlab.edu".
+    4) Right-click on the certificate -> "All Tasks" -> "Export...".
+    5) Follow the export wizard. Ensure to select the option "Yes, export the private key".
+    6) Set a password for the `.pfx` file when prompted, and remember this password as it is needed for configuring electron-builder.
+    7) Choose a name and save the `.pfx` file in a secure location.
 - Once the certificate has been exported to a `.pfx` file, the electron-builder configuration file is updated with the path to the `.pfx` file and the password set during the export. It is ensured that electron-builder has access to this location during the build process.
 - The program is running successfully if it is compiled from msys, but if it is compiled from the windows terminal the json files are not created for image analysis:
 <!-- ![App Screenshot](https://via.placeholder.com/468x300?text=App+Screenshot+Here) -->
