@@ -28,9 +28,10 @@ New-SelfSignedCertificate -DnsName noirlab.edu -Type CodeSigning -CertStoreLocat
 - Once the certificate has been exported to a `.pfx` file, the electron-builder configuration file is updated with the path to the `.pfx` file and the password set during the export. It is ensured that electron-builder has access to this location during the build process.
 - The program is running successfully if it is compiled from msys, but if it is compiled from the windows terminal the json files are not created for image analysis:
 
+<div align="center">
 ![App Screenshot](https://github.com/Cristian-Infante/FL-on-Windows/blob/CFIC/image.png)
 ![App Screenshot](https://github.com/Cristian-Infante/FL-on-Windows/blob/CFIC/image2.png)
-
+</div>
 
 
 ### 12/01/2024 – Final bug fixes and installer tests on different computers.
