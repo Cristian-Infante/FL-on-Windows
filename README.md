@@ -4,10 +4,12 @@ Explanation of progress in the development of the program installer with dates a
 
 
 
+
 ## 09/01/2024 - The node modules used by the program were obsolete due to the last node update and creation of the program certificate.
 
 - Resolved deprecaded node modules using a project folder with preloaded modules.
 - To build the program, a folder `private` with the program certificate `fl4.pfx` is requested in the package.json, but this folder is not in the program's gui repository.
+
 
 
 
@@ -17,15 +19,8 @@ Explanation of progress in the development of the program installer with dates a
 ```bash 
 New-SelfSignedCertificate -DnsName noirlab.edu -Type CodeSigning -CertStoreLocation Cert:\CurrentUser\My
 ```
-- The certificate was exported to the private folder using the following steps:
-    1) Open Windows Certificate Manager by running `certmgr.msc` in the Windows search box or in a Run command (Win + R).
-    2) In Certificate Manager, navigate to "Personal" -> "Certificates".
-    3) Locate the certificate, which should be named as per the `DnsName` specified in the creation command. It should be something related to "noirlab.edu".
-    4) Right-click on the certificate -> "All Tasks" -> "Export...".
-    5) Follow the export wizard. Ensure to select the option "Yes, export the private key".
-    6) Set a password for the `.pfx` file when prompted, and remember this password as it is needed for configuring electron-builder.
-    7) Choose a name and save the `.pfx` file in a secure location.
-- Once the certificate has been exported to a `.pfx` file, the electron-builder configuration file is updated with the path to the `.pfx` file and the password set during the export. It is ensured that electron-builder has access to this location during the build process.
+- Certificate was exported to `.pfx` file and copied to `private` folder inside the gui.
+- A first build of the program was made.
 - The program is running successfully if it is compiled from msys, but if it is compiled from the windows terminal the json files are not created for image analysis:
 <div align="center">
     
@@ -33,6 +28,7 @@ New-SelfSignedCertificate -DnsName noirlab.edu -Type CodeSigning -CertStoreLocat
 ![App Screenshot](https://github.com/Cristian-Infante/FL-on-Windows/blob/CFIC/image2.png)
 
 </div>
+
 
 
 
