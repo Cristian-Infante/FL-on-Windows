@@ -108,9 +108,14 @@ std::cout << "Flag1" << endl;
 
 
 
-## 22/01/2024 - Creation of executable for msys64 folder
+## 19/01/2024 - Creation of executable for msys64 folder
 
 - To avoid errors in the path or malfunction of the program, an executable is created that is responsible for creating the msys64 folder in the necessary path and adding it to the environment variables.
+
+
+
+## 22/01/2024 - Test executable for msys64 folder
+
 - Tests were carried out on different devices and both executables work correctly as long as the recommendations given are followed (Have a username without spaces).
 
 
